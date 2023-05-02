@@ -1,6 +1,6 @@
 version: "2.1"
 services:
-  ronaenserie:
+  blog:
     container_name: blog
     image: blog
     restart: always

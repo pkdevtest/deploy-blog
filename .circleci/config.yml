@@ -2,7 +2,7 @@ version: 2
 jobs:
   deploy:
     docker:
-      - image: circleci/node:14.18.0
+      - image: circleci/node:16.20.0
     working_directory: ~/deploy-blog
     steps:
       - add_ssh_keys:
