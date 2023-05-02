@@ -15,12 +15,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
+
+        <h1>Deployando nuestra aplicacion 😀😀😀😀</h1>
+        {/* <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>pages/index.js</code>
           </p>
           <div>
+            
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
               target="_blank"
@@ -40,6 +43,7 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
+          
           <Image
             className={styles.logo}
             src="/next.svg"
@@ -107,7 +111,7 @@ export default function Home() {
               with&nbsp;Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
     </>
   )
