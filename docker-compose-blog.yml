@@ -1,0 +1,17 @@
+version: "2.1"
+services:
+  ronaenserie:
+    container_name: blog
+    image: blog
+    restart: always
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    logging:
+      options:
+        max-size: 25m
+    command: sh -c "npm install && npm run build && npm run start"
+    working_dir: /app
+    volumes:
+      - ./://app

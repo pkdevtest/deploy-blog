@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  deploy:
+    docker:
+      - image: circleci/node:14.18.0
+    working_directory: ~/deploy-blog
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "8d:72:fa:87:61:f5:2e:ce:fd:be:de:5c:53:d8:7d:b4"
+      - checkout
+      - run:
+          name: Add IP to known_hosts
+          command: ssh-keyscan $DEPLOY_HOST >> ~/.ssh/known_hosts
+      - deploy:
+          command: ssh -o "StrictHostKeyChecking no" ubuntu@$DEPLOY_HOST -y "cd ~/deploy-blog;git stash;git checkout main; git pull origin main; sudo docker-compose -f docker-compose-blog.yml up --build -d; sudo docker system prune -f";
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: main
+
+
